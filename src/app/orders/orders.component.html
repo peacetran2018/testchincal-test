@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label>{{userName}}</label>
+            <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" type="button">LogOut</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <a routerLink="/main" class="btn btn-default">Back</a>
+    <div class="text-center">
+        <h2>View Customer Details</h2>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">Order Detail</th>
+                        <th scope="col">Order Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders; let i = index">
+                        <th scope="row">{{order.customer.customerName}}</th>
+                        <td>{{order.orderDate | date:'MMM dd, yyyy'}}</td>
+                        <td>{{order.orderDetail}}</td>
+                        <td>{{order.orderAmount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

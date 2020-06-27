@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label>{{userName}}</label>
+            <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" type="button">LogOut</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <a routerLink="/main" class="btn btn-default">Back</a>
+    <div class="text-center">
+        <h2>Hierarchy</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <ng-container
+                *ngTemplateOutlet="hierarchyView;context:{$implicit:hierarchies, parentid:'root', role:'tree',lid:'0'}">
+            </ng-container>
+            <ng-template #hierarchyView let-list let-role='role' let-parentid='parentid' let-lid="lid">
+                <ul [attr.role]="role" id="hierarchyview_root_{{parentid}}">
+                    <li *ngFor="let hierarchy of list; let i=index" role="treeitem" [attr.data-code]="hierarchy.nodeId"
+                        [attr.aria-expanded]="getStateItem(hierarchy)"
+                        id="hierarchy_item_{{parentid}}_{{hierarchy.nodeId}}" [tabindex]="setTabIndex(role,i)" #options>
+                        <i aria-hidden="true" [ngClass]="getExpand(hierarchy)" #icons>
+                        </i>
+                        <span (click)="toggleItem($event, hierarchy)">
+                            {{hierarchy.displayName}}
+                        </span>
+
+                        <ng-container
+                            *ngTemplateOutlet="hierarchyView;context:{$implicit:hierarchy.children, parentid:hierarchy.nodeId, role:'group'}">
+                        </ng-container>
+                    </li>
+                </ul>
+
+            </ng-template>
+        </div>
+    </div>
+</div>

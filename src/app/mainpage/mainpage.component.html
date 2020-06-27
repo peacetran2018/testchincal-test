@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label>{{userName}}</label>
+            <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" type="button">LogOut</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-5 text-center">
+                <h2>WelCome to Green Koncepts</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  mb-5">
+        <div class="col-lg-4">
+            <a [routerLink]="['/hierarchy']">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Hierarchy</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a [routerLink]="['/customer']">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Customer</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <a [routerLink]="['/order']">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Order</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <a [routerLink]="['#']">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Schedule</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <a [routerLink]="['#']">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Message</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <a [routerLink]="['#']">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <p class="card-text">Email</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

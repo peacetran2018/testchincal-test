@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label>{{userName}}</label>
+            <button (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" type="button">LogOut</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <a routerLink="/main" class="btn btn-default">Back</a>
+    <div class="text-center mb-5">
+        <h2>Add new customer</h2>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form name="form" (ngSubmit)="f.form.valid && saveCustomer(f.value)" #f="ngForm">
+                <div class="form-group">
+                    <label>Customer name</label>
+                    <input type="text" class="form-control" [(ngModel)]="customer.customerName" name="customerName"
+                        #customerName="ngModel" required>
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" class="form-control" min="0" [(ngModel)]="customer.customerAge"
+                        name="customerAge" #customerAge="ngModel" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea class="form-control" rows="5" [(ngModel)]="customer.customerAddress"
+                        name="customerAddress" #customerAddress="ngModel" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a routerLink="/main" class="btn btn-default">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

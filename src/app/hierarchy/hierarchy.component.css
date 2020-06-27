@@ -1,0 +1,15 @@
+li[aria-expanded='false']>ul{
+    display: none;
+}
+
+li[aria-expaned = 'true'] > ul{
+    display: block;
+}
+
+li > span:hover{
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
